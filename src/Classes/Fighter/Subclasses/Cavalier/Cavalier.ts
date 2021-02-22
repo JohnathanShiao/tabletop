@@ -17,8 +17,8 @@ export class Cavalier {
 
   static cavalier3(pc: PlayerCharacter, params: LevelingParams) {
     pc.pcHelper.addFeatures(Cavalier.getFeature("3", "BONUS PROFICIENCY"));
-    pc.skills[params.proficiencySelection[0]].proficient = true;
-    pc.traits.languages.push(Languages[params.subclassSelection.options[0]]);
+    pc.skills[params.subclassParams.skillProficiencies[0]].proficient = true;
+    pc.traits.languages.push(Languages[params.subclassParams.languages[0]]);
     pc.pcHelper.addFeatures(Cavalier.getFeature("3", "BORN TO THE SADDLE"));
     pc.pcHelper.addFeatures(Cavalier.getFeature("3", "UNWAVERING MARK"));
     const unwaveringMark: ResourceTrait = {

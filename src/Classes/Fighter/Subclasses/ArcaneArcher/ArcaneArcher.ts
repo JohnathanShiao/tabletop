@@ -1,9 +1,15 @@
 import { ScalingTrait } from "../../../../Base/Interfaces";
 import { PlayerCharacter } from "../../../../Base/PlayerCharacter";
 import { LevelingParams, PlayerClass } from "../../../../Classes/PlayerClass";
+import { FighterSubclassParams } from "../FighterSubclass";
 import * as ArcaneArcherArchetype from "./ArcaneArcher.json"
+import * as ArcaneShots from "./ArcaneShots.json"
 
 export class ArcaneArcher {
+
+  static getArcaneShot(shotName: string) {
+    return ArcaneShots[shotName];
+  }
 
   static getFeature(level: string, featureName: string) {
     return ArcaneArcherArchetype["features"][level][featureName];
@@ -28,8 +34,8 @@ export class ArcaneArcher {
       description: "Damage inflicted for Piercing, Seeking, (and Banishing Arrow @ lvl18)",
       dice: "1d6"
     }
-    pc.pcHelper.addSpells(params.spellSelections.add,"intelligence");
-    pc.skills[params.proficiencySelection[0]].proficient = true;
+    pc.pcHelper.addSpells(params.subclassParams.spellSelections.add,"intelligence");
+    pc.skills[params.subclassParams.skillProficiencies[0]].proficient = true;
     pc.pcHelper.addScalingTraits(dmgShot);
     pc.pcHelper.addScalingTraits(saveShot);
     pc.pcHelper.addFeatures(ArcaneArcher.getFeature("3", "ARCANE SHOT OPTIONS"));

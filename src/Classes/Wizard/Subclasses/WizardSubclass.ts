@@ -12,7 +12,7 @@ import { War } from "./War/War";
 
 export class WizardSubclass extends Subclass {
 
-    constructor(subclassSelection: {subclass: string, options?: string[]}){
+    constructor(subclassSelection: SubclassParams){
         super(subclassSelection);
     }
     
